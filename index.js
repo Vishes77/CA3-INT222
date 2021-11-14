@@ -6,9 +6,9 @@ const ejsMate = require('ejs-mate');
 const ExpressError = require('./utils/ExpressError');
 const session = require('express-session');
 const flash = require('connect-flash');
-const passport = require('passport'); //authentication 
-const LocalStrategy = require('passport-local'); //authentication 
-const User = require('./models/user'); //authentication 
+const passport = require('passport'); 
+const LocalStrategy = require('passport-local'); 
+const User = require('./models/user'); 
 
 
 const campgroundsRoutes = require('./routes/campground');
@@ -56,8 +56,8 @@ app.use(flash());
 //authentication
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate())); //here we are telling that hello passport we are going to use localstartagy for authentication on user model.
-passport.serializeUser(User.serializeUser()) //tells how we are going to serilize the users.
+passport.use(new LocalStrategy(User.authenticate())); 
+passport.serializeUser(User.serializeUser()) 
 passport.deserializeUser(User.deserializeUser())
 
 app.use((req, res, next) => {
@@ -77,18 +77,6 @@ app.get('/',(req,res)=>{
     res.render('home');
 })
 
-// const varifypassword = (req,res,next) =>{
-//     const { password } = req.query;
-//     if (password === 'pass') {
-//         next();
-//     }
-//     res.send("YOU NEED A PASSWORD!")
-// }
-
-
-// app.get('/secret',varifypassword,(req,res)=>{
-//     res.send("You Have been Pranked , Smile at the Camera.")
-// })
 
 app.get('/fakeUser' , async(req,res)=>{
     const user = new User({email : 'abcdefff@gmail.com',username :'Bishuuuu'})
@@ -106,7 +94,6 @@ app.use((err,req,res,next)=>{
     const {statusCode = 500 } = err;
     if(!err.message) err.message = 'Something Went Wrong';
     res.status(statusCode).render('error', { err } );
-    // res.send('Basic Error Handler Working');
 })
 
 app.listen(3000,()=>{
