@@ -28,7 +28,7 @@ const seedDb = async () =>{
             author : '618a9c64b5374e27a799b12e',
             location: `${cities[random1000].city} , ${cities[random1000].state}`,
             tittle: `${sample(descriptors)} ${sample(places)}`,
-            image : 'https://source.unsplash.com/random',
+            image : 'https://c4.wallpaperflare.com/wallpaper/178/895/585/travel-jimbaran-bali-resort-wallpaper-preview.jpg',
             // https://source.unsplash.com/collections/483251
             // 'https://source.unsplash.com/random',
             description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus ullam ut sunt, neque iure repellat. Dolor sunt magnam aliquam repell.',
