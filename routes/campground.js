@@ -62,7 +62,7 @@ router.get('/:id/edit',isLoggedIn,isAuthor, catchAsync(async (req,res)=>{
 }))
 
 router.put('/:id',isLoggedIn,isAuthor, validateCampground, catchAsync(async(req,res)=>{
-    const camp = await campground.findByIdAndUpdate(id , req.body.campground);
+    const camp = await campground.findByIdAndUpdate(req.params.id , req.body.campground);
     req.flash('success', 'Successfully Updated');
     //here ... just open the outer bracket and ramaining inside is take and updated in.
     res.redirect(`/campgrounds/${camp._id}`);
